@@ -1,0 +1,58 @@
+{
+  "name": "authapi",
+  "version": "1.0.0",
+  "description": "Auth API",
+  "main": "src/app.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node-esm src/app.ts",
+    "dev": "nodemon --esm src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perezalberto/authapi.git"
+  },
+  "author": "Alberto Pérez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perezalberto/authapi/issues"
+  },
+  "homepage": "https://github.com/perezalberto/authapi#readme",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "4.17.17",
+    "@types/helmet": "^4.0.0",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/mongodb": "^4.0.7",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "18.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.39.0",
+    "nodemon": "2.0.22",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "4.18.2",
+    "helmet": "^6.1.5",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.3.0",
+    "morgan": "^1.10.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "./node_modules/ts-standard/eslintrc.json"
+    ]
+  }
+}
