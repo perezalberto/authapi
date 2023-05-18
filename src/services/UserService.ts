@@ -8,12 +8,12 @@ import { HttpStatusError, HttpStatusSuccess } from "./HttpStatus.js"
 import { IUserRepository } from "./IUserRepository.js"
 import { RefreshToken } from "../utils/RefreshToken.js"
 
-export class AuthRepository<T extends IUserRepository> {
-    private userRepository: T
+export class UserService {
+    private userRepository: IUserRepository
     private tokenExpiration: number
     private refreshTokenExpiration: number
 
-    constructor(userRepository: T, config: {tokenExpiration: number, refreshTokenExpiration: number}) {
+    constructor(userRepository: IUserRepository, config: {tokenExpiration: number, refreshTokenExpiration: number}) {
         this.userRepository = userRepository
         this.tokenExpiration = config.tokenExpiration
         this.refreshTokenExpiration = config.refreshTokenExpiration
