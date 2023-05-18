@@ -48,17 +48,17 @@ export class UserService {
         const userResponse = await this.userRepository.create(data)
         const userData = userResponse.getOrNull()
         if(userData) {
-            return Either.right(new ApiSuccess({message: "User Created", status: HttpStatusSuccess.CREATED}))
+            return Either.right(new ApiSuccess({message: "User created", status: HttpStatusSuccess.CREATED}))
         }
-        return Either.left(new ApiError({error: "User Not Created", status: HttpStatusError.BAD_REQUEST}))
+        return Either.left(new ApiError({error: "User not created", status: HttpStatusError.BAD_REQUEST}))
     }
 
-    async validate(data: {token: string}): Promise<Either<ApiError, ApiSuccess>> {
+    async validate(data: {token: string}): Promise<Either<ApiError, ApiSuccess<{email: string}>>> {
         const tokenData = AccessToken.verify(data.token)
         if(!tokenData){
             return Either.left(new ApiError({error: "Invalid Token", status: HttpStatusError.UNAUTHORIZED}))
         }
-        return Either.right(new ApiSuccess({message: "Valid Token", status: HttpStatusSuccess.OK}))
+        return Either.right(new ApiSuccess({message: "Valid Token", status: HttpStatusSuccess.OK, value: {email: tokenData.email}}))
     }
 
     async refresh(data: {refreshToken: string}): Promise<Either<ApiError, ApiSuccess>> {

@@ -10,7 +10,7 @@ export class RefreshToken {
     }
 
     static create(userId: string, expiresIn: number): {refreshToken: string} {
-        const newToken = crypto.randomBytes(256).toString('base64')
+        const newToken = crypto.randomBytes(256).toString("base64url")
         RefreshToken.tokenList.set(newToken, {userId, exp: Math.floor(Date.now() / 1000) + expiresIn})
         return {refreshToken: newToken}
     }
